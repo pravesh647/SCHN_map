@@ -18,7 +18,6 @@ source("forword_geocoding.R")
 
 directory <- gsheet::gsheet2tbl("https://docs.google.com/spreadsheets/d/1ZLoZhr4SCBctABODSzCLjp_ZUxuUl1-4/edit#gid=529283017")
 location_data <- readxl::read_xlsx("datasets/location_database.xlsx")
-# setwd("~/Sites/SCHN_map")
 getwd()
 
 
@@ -52,7 +51,8 @@ server <- function(input, output) {
     
     output$directoryMapPlot <- renderLeaflet({
         directory %>%
-            mutate(address = paste0(street, ', ', city, ' ', state)) %>% 
+            mutate(address = paste0(street, ', ', city, ' ', state) ) %>% 
+            
             left_join(location_data, by = c("street", "city", "state")) %>% 
             leaflet() %>% 
             # Base Groups
@@ -65,8 +65,12 @@ server <- function(input, output) {
                 group = "Org",
                 popup = paste0(str_to_title(directory$organization),
                                "<br/>",
-                               "Services: ", directory$services
-                              ),
+                               "Services: ", directory$services,
+                               "<br/>",
+                               "<a href =\"", directory$findhelp_site, "\", target=\"_blank\">Findhelp</a>"
+                              )
+               
+                
             ) %>% 
             
             # Layer Groups

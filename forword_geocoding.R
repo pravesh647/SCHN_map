@@ -57,7 +57,6 @@ if(anyNA(directory$lat)){
   
   location_data <- rbind(location_data, directory)
   # 
-    
   # ----------------------------------------------------------------------------
   
   # exporting the data
