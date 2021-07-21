@@ -5,9 +5,9 @@ account: pravesh647
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 4402384
-bundleId: 4840005
+bundleId: 4840018
 url: https://pravesh647.shinyapps.io/SCHN_map/
-when: 1626837509.69719
-lastSyncTime: 1626837509.6972
+when: 1626837991.49153
+lastSyncTime: 1626837991.49154
 asMultiple: FALSE
 asStatic: FALSE

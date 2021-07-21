@@ -62,7 +62,7 @@ server <- function(input, output) {
             
             # Overlay Groups
             addMarkers(
-                group = "Org",
+                group = "Organizations",
                 popup = paste0(str_to_title(directory$organization),
                                "<br/>",
                                "Services: ", directory$services,
@@ -77,7 +77,7 @@ server <- function(input, output) {
             addLayersControl(
                 baseGroups = c("OSM (default)", "Toner", "Toner Lite"),
                 
-                overlayGroups = c("Assets","Org"),
+                overlayGroups = c("Organizations"),
                 options = layersControlOptions(collapsed = TRUE)
             )
         
